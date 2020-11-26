@@ -4,7 +4,7 @@ from csaiweb.models import Login, db, encode_auth_token
 from csaiweb import app
 from csaiweb.middleware import login_required
 
-# NO CLue yeh kis cheez ka hai 
+# Done
 @app.route('/backend/login', methods=["POST"])
 def login():
     content = request.get_json()
@@ -24,7 +24,7 @@ def login():
 
     return make_response(jsonify(dict))
 
-# No clue yeh kis cheez ka h
+
 
 @app.route('/backend/login', methods=["GET"])
 @login_required
@@ -45,7 +45,8 @@ def decode_password():
     except:
         return 'server error', 500
 
-# No clue yeh kis cheez ka h
+
+# Done
 @app.route('/backend/signup', methods=["POST"])
 def signup():
     try:

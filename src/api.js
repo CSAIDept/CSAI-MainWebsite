@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export default{
     user:{
-        login:(credentials) => axios.post('backend/auth', {credentials})
+        login:(credentials) => axios.post('backend/login', {credentials})
             .then(res => res.data.user),
 
-        signup: (user) => axios.post('backend/users',{user})
+        signup: (user) => axios.post('backend/signup',{user})
             .then(res => res.data.user)
     },
     thread:{
