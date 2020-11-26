@@ -7,7 +7,6 @@ def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         token = None
-
         if 'x-auth-token' in request.headers:
             token = request.headers['x-auth-token']
         if not token:

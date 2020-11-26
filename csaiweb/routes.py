@@ -115,7 +115,7 @@ def forum():
 
 # Thread Backend Routes
 
-
+# Done
 @app.route('/backend/newthread', methods=["POST"])
 def newthread():
     try:
@@ -137,7 +137,7 @@ def newthread():
     except:
         return 'Thread Not Added', 501
 
-
+# Done
 @app.route('/backend/editthread', methods=["GET", "PUT"])
 def editthread():
     try:
@@ -148,7 +148,7 @@ def editthread():
         downvoted = content["downvoted"]
         karma = content["karma"]
 
-        post = Thread.query.filter(Thread.id == sno).first
+        post = Thread.query.filter(Thread.id == sno).first()
         post.body = body
         post.upvoted = upvoted
         post.downvoted = downvoted
@@ -159,6 +159,8 @@ def editthread():
         return 'Thread Not Updated!', 501
 
 
+
+# We pass threadid in the URL. Make the changes please
 @app.route('/backend/deletethread', methods=["GET", "DELETED", "POST"])
 def deletethread():
     try:
@@ -173,6 +175,7 @@ def deletethread():
         return 'Thread Not Deleted!', 501
 
 
+# Done
 @app.route('/backend/thread/<id>', methods=["GET"])
 def thread(id):
 
@@ -194,6 +197,8 @@ def thread(id):
 
 
 # Comments Backend Routes
+
+# Done
 @app.route('/backend/newcomment', methods=["POST"])
 def newcomment():
     try:
@@ -216,6 +221,8 @@ def newcomment():
         return 'Comment Not Added', 501
 
 
+# Done
+
 @app.route('/backend/editcomment', methods=["GET", "PUT"])
 def editcomment():
     try:
@@ -237,6 +244,7 @@ def editcomment():
         return 'Comment Not Updated!', 501
 
 
+# We do not pass the data, rather just the comment id in URL. So change this please
 @app.route('/backend/deletecomment', methods=["GET", "DELETED", "POST"])
 def deletecomment():
     try:
@@ -250,7 +258,7 @@ def deletecomment():
     except:
         return 'Thread Not Deleted!', 501
 
-
+# Done
 @app.route('/backend/comments/<thread_id>', methods=["GET"])
 def comments(thread_id):
 

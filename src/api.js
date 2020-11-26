@@ -9,17 +9,17 @@ export default{
             .then(res => res.data.user)
     },
     thread:{
-        createThread:(details) => axios.post('backend/threads',{details})
+        createThread:(details) => axios.post('backend/newthread',{details})
             .then(res => res.data.thread),
-        editThread:(details) => axios.put(`/backend/threads/${details.threadId}`,{details})
+        editThread:(details) => axios.put('/backend/threads',{details})
             .then(res => res.data.thread),
         deleteThread:(threadId) => axios.delete(`/backend/threads/${threadId}`)
             .then(res => res.data.message),
     },
     comment:{
-        createComment:(details) => axios.post('/backend/comments',{details})
+        createComment:(details) => axios.post('/backend/newcomment',{details})
             .then(res => res.data.comment),
-        editComment:(details) => axios.put(`/backend/comments/${details.commentId}`,{details})
+        editComment:(details) => axios.put('/backend/comments',{details})
             .then(res => res.data.comment),
         deleteComment:(commentId) => axios.delete(`/backend/comments/${commentId}`)
             .then(res => res.data.message),

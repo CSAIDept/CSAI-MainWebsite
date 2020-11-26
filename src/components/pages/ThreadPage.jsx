@@ -61,7 +61,7 @@ class ThreadPage extends Component{
         })
     }
     submit = (data) =>{
-        data.thread = this.props.match.params.id
+        data.thread_id = this.props.match.params.id
         return this.props.createComment(data)
             .then(() => {
                 axios.get('/backend/comments/'+ this.props.match.params.id).then(res=>{
@@ -105,7 +105,7 @@ class ThreadPage extends Component{
 
         let commentList = temp.map(comment=>{
             return(
-                <CommentDisplay key={comment._id} comment={comment}/>
+                <CommentDisplay key={comment._id} comment={comment} />
             )
         })
         return(
