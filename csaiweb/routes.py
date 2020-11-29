@@ -154,7 +154,22 @@ def editthread():
         post.downvoted = downvoted
         post.karma = karma
         db.session.commit()
-        return 'Thread Updated!', 200
+
+        row = Thread.query.filter(Thread.id == s_no).first()
+        List = []
+        Dict = {
+        'id': row.s_no,
+        'body': row.body,
+        'author': row.author,
+        'title': row.title,
+        'karma': row.karma,
+        'upvoted': row.upvoted,
+        'downvoted': row.downvoted,
+        'time_created': row.time_created
+        }
+        List.append(Dict)
+
+        return json.dumps(List)
     except:
         return 'Thread Not Updated!', 501
 
