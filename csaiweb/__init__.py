@@ -11,4 +11,4 @@ app.config['SECRET_KEY'] = 'c0679f597745a986531e7cfc963bc811'
 
 db = SQLAlchemy(app)
 
-from csaiweb import routes
+from csaiweb import routes, auth_routes

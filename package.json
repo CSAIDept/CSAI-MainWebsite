@@ -23,10 +23,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-flask": "./venv/Scripts/activate && python run.py"
   },
-  "proxy": "http://127.0.0.1:5000/",
   "devDependencies": {
     "redux-devtools-extension": "^2.13.2"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

@@ -11,7 +11,7 @@ def login():
     username = content["username"]
     password = content["password"]
 
-    user = Login.query.filter(Login.username == username).first()
+    user = Login.query.filter(Login.username == username, Login.password == password).first()
 
     if user is None:
         return 'ID does not exist', 501

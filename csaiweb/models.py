@@ -1,16 +1,17 @@
 from csaiweb import db
-# from sqlalchemy import event
 import datetime
 import jwt
+
 
 class Login(db.Model):
     __tablename__ = 'Login'
     username = db.Column(db.String(100), primary_key=True)
     password = db.Column(db.String(100))
 
+
 class Comments(db.Model):
     __tablename__ = 'Comment'
-    id = db.Column(db.Integer, primary_key=True, autoincrement = True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     body = db.Column(db.String(3000))
     author = db.Column(db.String(100))
     thread_id = db.Column(db.String(10))
@@ -19,9 +20,10 @@ class Comments(db.Model):
     downvoted = db.Column(db.String(100))
     time_created = db.Column(db.String(100))
 
+
 class Thread(db.Model):
     __tablename__ = 'Thread'
-    id = db.Column(db.Integer, primary_key=True, autoincrement = True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     body = db.Column(db.String(3000))
     author = db.Column(db.String(100))
     title = db.Column(db.String(300))
@@ -31,6 +33,8 @@ class Thread(db.Model):
     time_created = db.Column(db.String(100))
 
 #Faculty Part
+
+
 class Faculty(db.Model):
     __bind_key__ = 'fac'
     __tablename__ = 'Faculty'
