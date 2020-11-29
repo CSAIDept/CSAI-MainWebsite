@@ -5,6 +5,8 @@ from csaiweb import app
 from csaiweb.middleware import login_required
 
 # Done
+
+
 @app.route('/backend/login', methods=["POST", "GET"])
 def login():
     content = request.get_json()
@@ -14,21 +16,22 @@ def login():
     # password = "1234"
     # print(content["credentials"])
 
-    user = Login.query.filter(Login.username == usern, Login.password == password).first()
+    user = Login.query.filter(Login.username == usern,
+                              Login.password == password).first()
 
     if user is None:
-        return 'ID does not exist', 501
+        return jsonify({"errors": {"global": "Invalid credentials"}}), 501
 
     token = encode_auth_token(usern)
 
     dict = {
-        'token': token.decode(),
-        'username': usern,
-        'password': password
+        "user": {
+            'token': token.decode(),
+            'username': usern,
+            'password': password}
     }
 
     return make_response(jsonify(dict))
-
 
 
 # @app.route('/backend/login', methods=["GET"])

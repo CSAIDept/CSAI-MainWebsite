@@ -103,7 +103,7 @@ def forum():
 
     for post in posts:
         Dict = {
-            'id': post.id,
+            'id': post.s_no,
             'title': post.title,
             'author': post.author,
             'karma': post.karma,
@@ -143,12 +143,12 @@ def editthread():
     try:
         content = request.get_json()
         body = content["body"]
-        sno = content["id"]
+        s_no = content["id"]
         upvoted = content["upvoted"]
         downvoted = content["downvoted"]
         karma = content["karma"]
 
-        post = Thread.query.filter(Thread.id == sno).first()
+        post = Thread.query.filter(Thread.id == s_no).first()
         post.body = body
         post.upvoted = upvoted
         post.downvoted = downvoted
@@ -159,10 +159,10 @@ def editthread():
         return 'Thread Not Updated!', 501
 
 
-@app.route('/backend/deletethread/<id>', methods=["GET", "DELETED", "POST"])
-def deletethread(id):
+@app.route('/backend/deletethread/<s_no>', methods=["GET", "DELETED", "POST"])
+def deletethread(s_no):
     try:
-        post = Thread.query.get(id)
+        post = Thread.query.get(s_no)
         db.session.delete(post)
         db.session.commit()
         return 'Thread Deleted!', 200
@@ -170,13 +170,13 @@ def deletethread(id):
         return 'Thread Not Deleted!', 501
 
 
-@app.route('/backend/thread/<id>', methods=["GET"])
-def thread(id):
+@app.route('/backend/thread/<s_no>', methods=["GET"])
+def thread(s_no):
 
-    row = Thread.query.get(id)
+    row = Thread.query.get(s_no)
     List = []
     Dict = {
-        'id': row.id,
+        'id': row.s_no,
         'body': row.body,
         'author': row.author,
         'title': row.title,

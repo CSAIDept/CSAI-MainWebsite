@@ -23,7 +23,7 @@ class Comments(db.Model):
 
 class Thread(db.Model):
     __tablename__ = 'Thread'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    s_no = db.Column(db.Integer, primary_key=True, autoincrement=True)
     body = db.Column(db.String(3000))
     author = db.Column(db.String(100))
     title = db.Column(db.String(300))
