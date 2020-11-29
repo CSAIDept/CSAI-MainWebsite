@@ -8,19 +8,22 @@ from csaiweb.middleware import login_required
 @app.route('/backend/login', methods=["POST", "GET"])
 def login():
     content = request.get_json()
-    username = content["username"]
-    password = content["password"]
+    usern = content["credentials"]["username"]
+    password = content["credentials"]["password"]
+    # usern = "pranay_kothari"
+    # password = "1234"
+    # print(content["credentials"])
 
-    user = Login.query.filter(Login.username == username, Login.password == password).first()
+    user = Login.query.filter(Login.username == usern, Login.password == password).first()
 
     if user is None:
         return 'ID does not exist', 501
 
-    token = encode_auth_token(username)
+    token = encode_auth_token(usern)
 
     dict = {
         'token': token.decode(),
-        'username': username,
+        'username': usern,
         'password': password
     }
 

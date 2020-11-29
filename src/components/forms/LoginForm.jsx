@@ -8,8 +8,8 @@ class LoginForm extends Component{
         super(props);
         this.state={
             data:{
-                username:'',
-                password:''
+                "username":'',
+                "password":''
             },
             loading:false,
             errors:{},
