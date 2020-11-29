@@ -5,7 +5,7 @@ from csaiweb import app
 from csaiweb.middleware import login_required
 
 # Done
-@app.route('/backend/login', methods=["POST"])
+@app.route('/backend/login', methods=["POST", "GET"])
 def login():
     content = request.get_json()
     username = content["username"]
@@ -19,31 +19,33 @@ def login():
     token = encode_auth_token(username)
 
     dict = {
-        'token': token.decode()
+        'token': token.decode(),
+        'username': username,
+        'password': password
     }
 
     return make_response(jsonify(dict))
 
 
 
-@app.route('/backend/login', methods=["GET"])
-@login_required
-def decode_password():
-    try:
-        username = g.user
+# @app.route('/backend/login', methods=["GET"])
+# @login_required
+# def decode_password():
+#     try:
+#         username = g.user
 
-        user = Login.query.filter(Login.username == username).first()
+#         user = Login.query.filter(Login.username == username).first()
 
-        List = []
+#         List = []
 
-        dict = {
-            'username': user.username,
-        }
-        List.append(dict)
+#         dict = {
+#             'username': user.username,
+#         }
+#         List.append(dict)
 
-        return json.dumps(List)
-    except:
-        return 'server error', 500
+#         return json.dumps(List)
+#     except:
+#         return 'server error', 500
 
 
 # Done
