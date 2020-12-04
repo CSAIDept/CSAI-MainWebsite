@@ -154,7 +154,7 @@ def editthread():
         # upvoted = content["upvoted"]
         # downvoted = content["downvoted"]
         # karma = content["karma"]
-        print(content)
+        # print(content)
 
         post = Thread.query.filter(Thread.s_no == s_no).first()
         post.body = body
@@ -220,34 +220,45 @@ def thread(s_no):
 @app.route('/backend/newcomment', methods=["POST"])
 def newcomment():
     try:
-        author = g.user
         content = request.get_json()
-        body = content["body"]
-        thread_id = content["thread_id"]
-        time = datetime.datetime.now()
+        body = content["details"]["body"]
+        thread_id = content["details"]["thread_id"]
+        author = content["details"]["author"]
+        # time = datetime.datetime.now()
+        # author = "pranay_kothari"
+        # body = "Amazing!"
+        # thread_id = 2
+        time = "Few Seconds Ago"
         upvoted = 0
         downvoted = 0
         karma = 0
 
         post = Comments(body=body, author=author, thread_id=thread_id, karma=karma,
-                        upvoted=upvoted, downvoted=downvoted, time_created=time.strftime("%x"))
+                        upvoted=upvoted, downvoted=downvoted, time_created=time)
 
         db.session.add(post)
         db.session.commit()
         return 'New Comment Added', 200
     except:
-        return 'Comment Not Added', 501
+        return jsonify({"errors": {"global": "Comment Not Added"}}), 501
 
 
 @app.route('/backend/editcomment', methods=["GET", "PUT"])
 def editcomment():
     try:
         content = request.get_json()
-        body = content["body"]
-        sno = content["id"]
-        upvoted = content["upvoted"]
-        downvoted = content["downvoted"]
-        karma = content["karma"]
+        body = content["details"]["body"]
+        sno = content["details"]["id"]
+        
+        # upvoted = content["upvoted"]
+        # downvoted = content["downvoted"]
+        # karma = content["karma"]
+        print(content)
+        # body = "Manjot!!!!"
+        sno = "3"
+        upvoted = 0
+        downvoted = 0
+        karma = 0
 
         post = Comments.query.filter(Comments.id == sno).first()
         post.body = body

@@ -18,7 +18,7 @@ export const createThread = (details) => dispatch =>
 
 export const editThread = (details) => dispatch =>
     api.thread.editThread(details).then(newThread =>{
-        console.log("Results", newThread)
+        // console.log("Results", newThread)
         dispatch(threadUpdated(newThread))
     }
      );

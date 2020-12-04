@@ -20,7 +20,7 @@ export default{
     comment:{
         createComment:(details) => axios.post('/backend/newcomment',{details})
             .then(res => res.data.comment),
-        editComment:(details) => axios.put('/backend/comments',{details})
+        editComment:(details) => axios.put('/backend/editcomment',{details})
             .then(res => res.data.comment),
         deleteComment:(commentId) => axios.delete(`/backend/comments/${commentId}`)
             .then(res => res.data.message),
