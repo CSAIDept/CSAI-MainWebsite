@@ -9,8 +9,9 @@ class CommentForm extends Component {
     super(props);
     this.state = {
       data: {
+        id: this.props.id,
         body: "",
-        author: this.props.username
+        author: this.props.username,
       },
       loading: false,
       errors: {},
@@ -24,6 +25,7 @@ class CommentForm extends Component {
     });
   };
   onSubmit = () => {
+    console.log("Hello i m from on Submit fcn");
     const errors = {};
     if (!this.state.data.body) {
       errors.body = "comment can't be empty";
@@ -31,11 +33,12 @@ class CommentForm extends Component {
     this.setState({
       errors: errors,
     });
+    console.log("DATA", this.state.data);
     if (Object.keys(errors).length === 0) {
       this.setState({ loading: true });
       this.props
         .submit(this.state.data)
-        .then(() => this.props.toggleEdit())
+        .then(() => this.props.toggleComment())
         .catch((err) =>
           this.setState({
             errors: err,
@@ -44,7 +47,7 @@ class CommentForm extends Component {
         );
     }
 
-    this.props.toggleEdit();
+    // this.props.toggleComment();
   };
 
   render() {

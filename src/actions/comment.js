@@ -8,7 +8,7 @@ export const commentEdited = (comment) =>({
     type:'COMMENT_EDITED',
     comment
 })
-
+  
 export const commentDeleted = () => ({
     type: 'COMMENT_DELETED',
 })

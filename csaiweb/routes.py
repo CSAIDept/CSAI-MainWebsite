@@ -249,13 +249,16 @@ def editcomment():
         content = request.get_json()
         body = content["details"]["body"]
         sno = content["details"]["id"]
-        
+        author = content["details"]["author"]
+        # body = "Yo"
+        # author="pranay_kothari"
+
         # upvoted = content["upvoted"]
         # downvoted = content["downvoted"]
         # karma = content["karma"]
         print(content)
         # body = "Manjot!!!!"
-        sno = "3"
+        # sno = "3"
         upvoted = 0
         downvoted = 0
         karma = 0

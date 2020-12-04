@@ -15,11 +15,11 @@ class CommentDisplay extends Component {
     this.state = {
       editMode: false,
       visible: true,
-    //   positive: this.props.comment.upvoted.indexOf(this.props.username) >= 0,
-    //   negative: this.props.comment.downvoted.indexOf(this.props.username) >= 0,
-    positive:false,
-    negative:false,
-    comment: this.props.comment,
+      //   positive: this.props.comment.upvoted.indexOf(this.props.username) >= 0,
+      //   negative: this.props.comment.downvoted.indexOf(this.props.username) >= 0,
+      positive: false,
+      negative: false,
+      comment: this.props.comment,
     };
     this.toggleEdit = this.toggleEdit.bind(this);
     this.submit = this.submit.bind(this);
@@ -37,14 +37,28 @@ class CommentDisplay extends Component {
       });
     }
   }
-
+  // componentDidMount() {
+  //   console.log("Component did mount started ");
+  //   axios.get(`/backend/editComment/${this.props.threadid}`).then((res) => {
+  //     console.log("Res is = ", res);
+  //     this.setState({
+  //       threadData: res.data[0],
+  //       // If you have chnaged the database, uncomment these 2 and COMMENT the below hardcoded ones
+  //       // positive:res.data.upvoted.indexOf(this.props.username) >= 0,
+  //       // negative:res.data.downvoted.indexOf(this.props.username) >= 0,
+  //       positive: false,
+  //       negative: false,
+  //     });
+  //   });
+  //   console.log("Component did mount ended");
+  // }
   upvote = () => {
     let vote = 1;
     if (this.state.positive) {
       vote = -1;
     }
     axios
-      .put(`/backend/comments/karma/${this.state.comment._id}`, {
+      .put(`/backend/comments/karma/${this.state.comment.id}`, {
         vote: vote,
         user: this.props.username,
         type: "upvote",
@@ -63,7 +77,7 @@ class CommentDisplay extends Component {
       vote = 1;
     }
     axios
-      .put(`/backend/comments/karma/${this.state.comment._id}`, {
+      .put(`/backend/comments/karma/${this.state.comment.id}`, {
         vote: vote,
         user: this.props.username,
         type: "downvote",
@@ -83,17 +97,22 @@ class CommentDisplay extends Component {
     });
   };
   delete = () => {
-    this.props.deleteComment(this.state.comment._id).then(() => {
+    this.props.deleteComment(this.state.comment.id).then(() => {
       this.setState({
         visible: false,
       });
     });
   };
   submit = (data) => {
-    data.thread = this.state.comment.thread;
+    // console.log("yyyyyyyy : ",this.state.comment)
+    data.thread = this.state.comment.thread_id;
     data.author = this.state.comment.author;
-    data.commentId = this.state.comment._id;
-    //     return this.props.editComment(data)
+    data.id = this.state.comment._id;
+    // console.log("yoooooooooo ",this.state.comment);
+    // console.log("1 ", this.state.comment.thread);
+    // console.log("2 ", this.state.comment.author);
+    // console.log("3 ", this.state.comment._id);
+    // return this.props.editComment(data)
     //         .then((res) => {
     //             this.setState({
     //                 comment:res.comment,
@@ -101,15 +120,19 @@ class CommentDisplay extends Component {
     //             })
     //         })
     // }
-    console.log("Manjot", data);
+    // console.log("Manjot", data);
     // this.setState({
-    //   threadData: res.thread,
+    //   threadData: data,
     //   editMode: false,
     // });
     this.setState({
       comment: data,
       editMode: false,
     });
+    // console.log("1 ", this.state.comment.thread);
+    // console.log("2 ", this.state.comment.author);
+    // console.log("3 ", this.state.comment._id);
+    // console.log("Manjot", data);
     return this.props.editComment(data);
     // .then((res) => {
     //   console.log("Edit Thread res is = : ", res);
@@ -171,6 +194,7 @@ class CommentDisplay extends Component {
             <Moment fromNow>{this.state.comment.created}</Moment>
           </Comment.Metadata>
           <EditForm
+            toggleEdit={this.toggleEdit}
             submit={this.submit}
             body={this.state.comment.body}
             commentId={this.state.comment._id}
