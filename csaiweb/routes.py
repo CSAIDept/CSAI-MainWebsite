@@ -107,9 +107,11 @@ def forum():
             'title': post.title,
             'author': post.author,
             'karma': post.karma,
-            'time_created': post.time_created
+            'created': post.time_created
         }
         List.append(Dict)
+
+    # print(List)
 
     return json.dumps(List)
 
@@ -119,11 +121,14 @@ def forum():
 @app.route('/backend/newthread', methods=["POST"])
 def newthread():
     try:
-        author = g.user
         content = request.get_json()
-        title = content["title"]
-        body = content["body"]
+        title = content["details"]["title"]
+        body = content["details"]["body"]
+        author = content["details"]["author"]
+        # title = "Hello"
+        # body = "Hello Guys!!"
         time = datetime.datetime.now()
+        print(content)
         upvoted = 0
         downvoted = 0
         karma = 0
@@ -135,43 +140,47 @@ def newthread():
         db.session.commit()
         return 'New Thread Added', 200
     except:
-        return 'Thread Not Added', 501
+        return jsonify({"errors": {"global": "Invalid credentials"}}), 501
 
 
-@app.route('/backend/editthread', methods=["GET", "PUT"])
+@app.route('/backend/editthread', methods=["PUT"])
 def editthread():
     try:
         content = request.get_json()
-        body = content["body"]
-        s_no = content["id"]
-        upvoted = content["upvoted"]
-        downvoted = content["downvoted"]
-        karma = content["karma"]
+        body = content["details"]["body"]
+        s_no = content["details"]["id"]
+        # body = "Yo"
+        # s_no = 2
+        # upvoted = content["upvoted"]
+        # downvoted = content["downvoted"]
+        # karma = content["karma"]
+        print(content)
 
-        post = Thread.query.filter(Thread.id == s_no).first()
+        post = Thread.query.filter(Thread.s_no == s_no).first()
         post.body = body
-        post.upvoted = upvoted
-        post.downvoted = downvoted
-        post.karma = karma
+        # post.upvoted = upvoted
+        # post.downvoted = downvoted
+        # post.karma = karma
         db.session.commit()
 
-        row = Thread.query.filter(Thread.id == s_no).first()
+        row = Thread.query.filter(Thread.s_no == s_no).first()
         List = []
         Dict = {
-        'id': row.s_no,
-        'body': row.body,
-        'author': row.author,
-        'title': row.title,
-        'karma': row.karma,
-        'upvoted': row.upvoted,
-        'downvoted': row.downvoted,
-        'time_created': row.time_created
+            "thread": {
+                '_id': row.s_no,
+                'body': row.body,
+                'author': row.author,
+                'title': row.title,
+                'karma': row.karma,
+                'upvoted': row.upvoted,
+                'downvoted': row.downvoted,
+                'time_created': row.time_created
+            }
         }
         List.append(Dict)
-
         return json.dumps(List)
     except:
-        return 'Thread Not Updated!', 501
+        return jsonify({"errors": {"global": "Invalid credentials"}}), 501
 
 
 @app.route('/backend/deletethread/<s_no>', methods=["GET", "DELETED", "POST"])
@@ -183,6 +192,8 @@ def deletethread(s_no):
         return 'Thread Deleted!', 200
     except:
         return 'Thread Not Deleted!', 501
+
+# Upvotes and Downvoted are a array of usernames. Make changes and then also make chnages mentioned on line 37-38 of ThreadDisplay.jsx
 
 
 @app.route('/backend/thread/<s_no>', methods=["GET"])
@@ -201,7 +212,7 @@ def thread(s_no):
         'time_created': row.time_created
     }
     List.append(Dict)
-
+    # print(List)
     return json.dumps(List)
 
 
@@ -244,9 +255,26 @@ def editcomment():
         post.downvoted = downvoted
         post.karma = karma
         db.session.commit()
-        return 'Comment Updated!', 200
+
+        List = []
+        Dict = {}
+
+        row = Comments.query.filter(Comments.id == sno).all()
+        Dict = {
+            'id': row.id,
+            'body': row.body,
+            'author': row.author,
+            'karma': row.karma,
+            'thread_id': row.thread_id,
+            'upvoted': row.upvoted,
+            'downvoted': row.downvoted,
+            'time_created': row.time_created
+        }
+        List.append(Dict)
+
+        return json.dumps(List)
     except:
-        return 'Comment Not Updated!', 501
+        return jsonify({"errors": {"global": "Comment Not Updated"}}), 501
 
 
 @app.route('/backend/deletecomment/<id>', methods=["GET", "DELETED", "POST"])
@@ -279,7 +307,7 @@ def comments(thread_id):
             'time_created': row.time_created
         }
         List.append(Dict)
-
+    # print(List)
     return json.dumps(List)
 
 # User Info Display
@@ -295,7 +323,7 @@ def user(username):
     for post in threads:
         Dict = {
             'type': "Thread",
-            'id': post.id,
+            'id': post.s_no,
             'title': post.title,
             'author': post.author,
             'time_created': post.time_created

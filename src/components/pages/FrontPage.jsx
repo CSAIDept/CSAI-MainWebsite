@@ -55,9 +55,9 @@ class FrontPage extends Component{
 
     }
     componentDidMount(){
-        axios.get('backend/threads').then(res => {
+        axios.get('/backend/forum').then(res => {
             this.setState({
-                threads: res.data.threads,
+                threads: res.data,
                 loading:false
             })
 
@@ -76,35 +76,40 @@ class FrontPage extends Component{
     }
 
     render(){
-        let temp = this.state.threads.slice()
-        if(this.state.sortby === 'Title'){
-            temp.sort(compareTitle)
-        }
-        if(this.state.sortby === 'Points'){
-            temp.sort(compareKarma)
-        }
-        if(this.state.sortby === 'Date'){
-            temp = this.state.threads.slice()
-        }
-        if(!this.state.ascending){
-            temp.reverse()
-        }
-        let threadList = temp.map(thread =>{
-            return(
-                <Card fluid centered key={thread._id} as={Link} to={`/thread/${thread._id}`}>
-                    <Card.Content>
-                        <Card.Header content={thread.title}/>
-                        <Card.Meta>
-                            <span>submitted by {thread.author}</span><Moment fromNow>{thread.created}</Moment>
-                        </Card.Meta>
-                    </Card.Content>
-                    <Card.Content extra>
-                        {thread.karma} points
-                    </Card.Content>
+        if(this.state.threads.length !== 0) {
+            var temp = this.state.threads.slice()
 
-                </Card>
-            )
-        })
+            if(this.state.sortby === 'Title'){
+                temp.sort(compareTitle)
+            }
+            if(this.state.sortby === 'Points'){
+                temp.sort(compareKarma)
+            }
+            if(this.state.sortby === 'Date'){
+                temp = this.state.threads.slice()
+            }
+            if(!this.state.ascending){
+                temp.reverse()
+            }
+            var threadList = temp.map(thread =>{
+                return(
+                    <Card fluid centered key={thread.id} as={Link} to={`/thread/${thread.id}`}>
+                        <Card.Content>
+                            <Card.Header content={thread.title}/>
+                            <Card.Meta>
+                                <span>submitted by {thread.author}</span><Moment fromNow>{thread.created}</Moment>
+                            </Card.Meta>
+                        </Card.Content>
+                        <Card.Content extra>
+                            {thread.karma} points
+                        </Card.Content>
+    
+                    </Card>
+                )
+            })
+        }
+
+        
         return(
             <Segment loading={this.state.loading} style = {{background: "#ED4832"}}>
                 <Dropdown defaultValue={'Points'} selection options={sortOptions} onChange={this.sortChange}/>

@@ -10,6 +10,7 @@ class EditForm extends Component{
         this.state={
             data:{
                 body:this.props.body,
+                id: this.props.threadId
             },
             loading: false,
             errors:{}
@@ -32,13 +33,16 @@ class EditForm extends Component{
         })
         if(Object.keys(errors).length === 0){
             this.setState({loading:true});
-            this.props.submit(this.state.data)
+            this.props.submit(this.state.data).then(() => this.props.toggleEdit())
                 .catch(err => this.setState({
-                    errors:err.response.data.errors,
+                    errors:  err,
                     loading:false
                 }));
-        }
+        } 
+
+        this.props.toggleEdit();
     }
+    
 
     render(){
         return(
@@ -59,7 +63,8 @@ class EditForm extends Component{
                     />
                     {this.state.errors.body && <InlineError text={this.state.errors.body}/>}
                 </Form.Field>
-                <Button primary compact>Save</Button>
+                {/* <Button primary compact>Save</Button> */}
+                <input type="submit" value="Save"/>
             </Form>
         );
     }

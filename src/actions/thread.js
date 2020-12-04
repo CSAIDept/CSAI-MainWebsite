@@ -17,7 +17,11 @@ export const createThread = (details) => dispatch =>
     api.thread.createThread(details).then(newThread => dispatch(threadCreated(newThread)));
 
 export const editThread = (details) => dispatch =>
-    api.thread.editThread(details).then(newThread => dispatch(threadUpdated(newThread)));
+    api.thread.editThread(details).then(newThread =>{
+        console.log("Results", newThread)
+        dispatch(threadUpdated(newThread))
+    }
+     );
 
 export const deleteThread = (threadId) => dispatch =>
     api.thread.deleteThread(threadId).then( () => dispatch(threadDeleted()));

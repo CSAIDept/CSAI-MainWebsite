@@ -3,7 +3,8 @@ import axios from 'axios';
 export default{
     user:{
         login:(credentials) => axios.post('backend/login', {credentials})
-            .then(res => res.data.user),
+            .then(res => { console.log("Hey",res.data.user)
+                return(res.data.user)}),
 
         signup: (user) => axios.post('backend/signup',{user})
             .then(res => res.data.user)
@@ -11,9 +12,9 @@ export default{
     thread:{
         createThread:(details) => axios.post('backend/newthread',{details})
             .then(res => res.data.thread),
-        editThread:(details) => axios.put('/backend/threads',{details})
+        editThread:(details) => axios.put('/backend/editthread',{details})
             .then(res => res.data.thread),
-        deleteThread:(threadId) => axios.delete(`/backend/threads/${threadId}`)
+        deleteThread:(threadId) => axios.delete(`/backend/deletethread/${threadId}`)
             .then(res => res.data.message),
     },
     comment:{

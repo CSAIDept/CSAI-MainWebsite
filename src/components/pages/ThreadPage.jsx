@@ -55,7 +55,7 @@ class ThreadPage extends Component{
     componentDidMount(){
         axios.get('/backend/comments/'+ this.props.match.params.id).then(res=>{
             this.setState({
-                comments:res.data.comments,
+                comments:res.data,
                 loading:false
             })
         })
