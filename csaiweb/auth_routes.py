@@ -1,6 +1,6 @@
 import json
 from flask import request, jsonify, g, make_response
-from csaiweb.models import Login, db, encode_auth_token
+from csaiweb.models import Login, db, encode_auth_token, decode_auth_token
 from csaiweb import app
 from csaiweb.middleware import login_required
 
@@ -10,24 +10,24 @@ from csaiweb.middleware import login_required
 @app.route('/backend/login', methods=["POST", "GET"])
 def login():
     content = request.get_json()
-    usern = content["credentials"]["username"]
+    username = content["credentials"]["username"]
     password = content["credentials"]["password"]
     # usern = "pranay_kothari"
     # password = "1234"
     # print(content["credentials"])
 
-    user = Login.query.filter(Login.username == usern,
+    user = Login.query.filter(Login.username == username,
                               Login.password == password).first()
 
     if user is None:
         return jsonify({"errors": {"global": "Invalid credentials"}}), 501
 
-    token = encode_auth_token(usern)
+    token = encode_auth_token(username)
 
     dict = {
         "user": {
-            'token': token.decode(),
-            'username': usern,
+            'token': decode_auth_token(token),
+            'username': username,
             'password': password}
     }
 
@@ -58,25 +58,25 @@ def login():
 def signup():
     try:
         content = request.get_json()
-        usern = content["user"]["username"]
+        username = content["user"]["username"]
         password = content["user"]["password"]
         # username = "manjot_singh"
         # password = "1234"
-        print(content)
+        # print(content)
 
-        user = Login(username=usern, password=password)
+        user = Login(username=username, password=password)
         db.session.add(user)
         db.session.commit()
 
-        token = encode_auth_token(usern)
+        token = encode_auth_token(username)
 
        # dict = {
        #     'token': token.decode()
        # }
         dict = {
             "user": {
-                'token': token.decode(),
-                'username': usern,
+                'token': decode_auth_token(token),
+                'username': username,
                 # 'password': password
             }
         }

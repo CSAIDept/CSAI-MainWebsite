@@ -128,7 +128,7 @@ def newthread():
         # title = "Hello"
         # body = "Hello Guys!!"
         time = "Few Seconds Ago"
-        print(content)
+        # print(content)
         upvoted = 0
         downvoted = 0
         karma = 0
