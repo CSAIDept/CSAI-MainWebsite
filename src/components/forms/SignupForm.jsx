@@ -46,10 +46,11 @@ class SignupForm extends Component{
                     loading : false
                 }));
         }
+        window.location.href="/forum";
     }
 
     render(){
-        console.log(this.state.errors);
+        // console.log("ERROR KI MKC", this.state.errors);
         return(
             <Form onSubmit={this.onSubmit} loading={this.state.loading} style = {{marginLeft: "55vw", width:"20vw"}}>
                 {this.state.errors.global && (
@@ -82,7 +83,7 @@ class SignupForm extends Component{
                     />
                     {this.state.errors.password && <InlineError text={this.state.errors.password}/>}
                 </Form.Field>
-                <Button onClick={() => this.submit } primary style = {{marginLeft: "7vw"}}>Signup</Button>
+                <Button onClick={() => this.onSubmit } primary style = {{marginLeft: "7vw"}}>Signup</Button>
             </Form>
         );
     }

@@ -23,4 +23,6 @@ export const logout = () => dispatch => {
 }
 
 export const signup = (data) => dispatch =>
-    api.user.signup(data).then(user => dispatch(userLoggedIn(user)));
+    api.user.signup(data).then(user =>{
+    dispatch(userLoggedIn(user))
+   });

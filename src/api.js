@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   user: {
@@ -9,7 +9,10 @@ export default {
       }),
 
     signup: (user) =>
-      axios.post("backend/signup", { user }).then((res) => res.data.user),
+      axios.post("backend/signup", { user }).then((res) => {
+        console.log("Test", res.data.user);
+        return res.data.user;
+      }),
   },
   thread: {
     createThread: (details) =>

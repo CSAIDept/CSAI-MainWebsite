@@ -54,26 +54,33 @@ def login():
 #         return 'server error', 500
 
 
-@app.route('/backend/signup', methods=["POST"])
+@app.route('/backend/signup', methods=["POST", "GET"])
 def signup():
     try:
         content = request.get_json()
-        username = content["user"]["username"]
+        usern = content["user"]["username"]
         password = content["user"]["password"]
         # username = "manjot_singh"
         # password = "1234"
         print(content)
 
-        user = Login(username=username, password=password)
+        user = Login(username=usern, password=password)
         db.session.add(user)
         db.session.commit()
 
-        token = encode_auth_token(username)
+        token = encode_auth_token(usern)
 
+       # dict = {
+       #     'token': token.decode()
+       # }
         dict = {
-            'token': token.decode()
+            "user": {
+                'token': token.decode(),
+                'username': usern,
+                # 'password': password
+            }
         }
 
         return make_response(jsonify(dict))
     except:
-        return 'server error', 500
+        return jsonify({"errors": {"global": "Invalid credentials"}}), 501

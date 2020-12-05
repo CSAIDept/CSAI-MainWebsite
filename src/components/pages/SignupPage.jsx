@@ -15,8 +15,12 @@ class SignupPage extends Component{
     }
 
     submit = (data) =>{
+        console.log("Mar jayega tu", data);
         return this.props.signup(data)
-            .then(() => this.props.history.push("/forum"));
+            .then((res) =>{ 
+                console.log(res.data.user)
+                this.props.history.push("/forum")
+        });
     }
     render(){
         return(
