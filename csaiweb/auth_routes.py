@@ -59,8 +59,11 @@ def login():
 def signup():
     try:
         content = request.get_json()
-        username = content["username"]
-        password = content["password"]
+        # username = content["user"]["username"]
+        # password = content["user"]["password"]
+        username = "manjot_singh"
+        password = "1234"
+        print(content)
 
         user = Login(username=username, password=password)
         db.session.add(user)

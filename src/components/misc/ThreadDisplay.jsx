@@ -114,8 +114,8 @@ class ThreadDisplay extends Component {
   };
   delete = () => {
     return this.props
-      .deleteThread(this.state.threadData._id)
-      .then(() => this.props.history.push("/"));
+      .deleteThread(this.state.threadData.id)
+      .then(() => this.props.history.push("/forum"));
   };
   submit = (data) => {
     data.title = this.state.threadData.title;

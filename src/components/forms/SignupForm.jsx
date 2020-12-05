@@ -17,8 +17,6 @@ class SignupForm extends Component{
 
         this.onChange=this.onChange.bind(this);
         this.onSubmit=this.onSubmit.bind(this);
-
-
     }
     onChange = (e) =>{
         this.setState({
@@ -26,6 +24,7 @@ class SignupForm extends Component{
         })
     }
     onSubmit = () =>{
+        console.log("Yep", this.state);
         const errors={};
         if(!this.state.data.username){
             errors.username= "username required";
@@ -42,7 +41,7 @@ class SignupForm extends Component{
             this.setState({loading:true});
             this.props.submit(this.state.data)
                 .catch(err => this.setState({
-                    errors : err.response.data.errors,
+                    errors : err,
                     errors: {global: false},
                     loading : false
                 }));

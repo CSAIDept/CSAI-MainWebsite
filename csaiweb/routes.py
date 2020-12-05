@@ -94,7 +94,7 @@ def faculty():
 
 # Forum Route - Returns all Threads in database
 
-
+#Done
 @app.route('/backend/forum', methods=["GET"])
 def forum():
     posts = Thread.query.all()
@@ -117,7 +117,7 @@ def forum():
 
 # Thread Backend Routes
 
-
+#Done
 @app.route('/backend/newthread', methods=["POST"])
 def newthread():
     try:
@@ -127,14 +127,14 @@ def newthread():
         author = content["details"]["author"]
         # title = "Hello"
         # body = "Hello Guys!!"
-        time = datetime.datetime.now()
+        time = "Few Seconds Ago"
         print(content)
         upvoted = 0
         downvoted = 0
         karma = 0
 
         post = Thread(body=body, author=author, title=title, karma=karma,
-                      upvoted=upvoted, downvoted=downvoted, time_created=time.strftime("%x"))
+                      upvoted=upvoted, downvoted=downvoted, time_created=time)
 
         db.session.add(post)
         db.session.commit()
@@ -142,7 +142,7 @@ def newthread():
     except:
         return jsonify({"errors": {"global": "Invalid credentials"}}), 501
 
-
+#Done
 @app.route('/backend/editthread', methods=["PUT"])
 def editthread():
     try:
@@ -183,7 +183,7 @@ def editthread():
         return jsonify({"errors": {"global": "Invalid credentials"}}), 501
 
 
-@app.route('/backend/deletethread/<s_no>', methods=["GET", "DELETED", "POST"])
+@app.route('/backend/deletethread/<s_no>', methods=["GET", "DELETE", "POST"])
 def deletethread(s_no):
     try:
         post = Thread.query.get(s_no)
@@ -195,7 +195,7 @@ def deletethread(s_no):
 
 # Upvotes and Downvoted are a array of usernames. Make changes and then also make chnages mentioned on line 37-38 of ThreadDisplay.jsx
 
-
+#Done
 @app.route('/backend/thread/<s_no>', methods=["GET"])
 def thread(s_no):
 
@@ -217,6 +217,8 @@ def thread(s_no):
 
 
 # Comments Backend Routes
+
+#Done
 @app.route('/backend/newcomment', methods=["POST"])
 def newcomment():
     try:
@@ -242,7 +244,7 @@ def newcomment():
     except:
         return jsonify({"errors": {"global": "Comment Not Added"}}), 501
 
-
+#Done
 @app.route('/backend/editcomment', methods=["GET", "PUT"])
 def editcomment():
     try:
@@ -250,24 +252,19 @@ def editcomment():
         body = content["details"]["body"]
         sno = content["details"]["id"]
         author = content["details"]["author"]
-        # body = "Yo"
-        # author="pranay_kothari"
 
         # upvoted = content["upvoted"]
         # downvoted = content["downvoted"]
         # karma = content["karma"]
-        print(content)
-        # body = "Manjot!!!!"
-        # sno = "3"
-        upvoted = 0
-        downvoted = 0
-        karma = 0
+        # upvoted = 0
+        # downvoted = 0
+        # karma = 0
 
         post = Comments.query.filter(Comments.id == sno).first()
         post.body = body
-        post.upvoted = upvoted
-        post.downvoted = downvoted
-        post.karma = karma
+        # post.upvoted = upvoted
+        # post.downvoted = downvoted
+        # post.karma = karma
         db.session.commit()
 
         List = []
@@ -291,7 +288,7 @@ def editcomment():
         return jsonify({"errors": {"global": "Comment Not Updated"}}), 501
 
 
-@app.route('/backend/deletecomment/<id>', methods=["GET", "DELETED", "POST"])
+@app.route('/backend/deletecomment/<id>', methods=["GET", "DELETE", "POST"])
 def deletecomment(id):
     try:
         post = Comments.query.get(id)
@@ -302,6 +299,7 @@ def deletecomment(id):
         return 'Comment Not Deleted!', 501
 
 
+#Done
 @app.route('/backend/comments/<thread_id>', methods=["GET"])
 def comments(thread_id):
 

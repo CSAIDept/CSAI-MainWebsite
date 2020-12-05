@@ -24,4 +24,8 @@ export const editThread = (details) => dispatch =>
      );
 
 export const deleteThread = (threadId) => dispatch =>
-    api.thread.deleteThread(threadId).then( () => dispatch(threadDeleted()));
+    api.thread.deleteThread(threadId).then(threadId =>{
+        console.log("Thread deleted",threadId)
+        dispatch(threadDeleted(threadId))
+    }
+    ); 
