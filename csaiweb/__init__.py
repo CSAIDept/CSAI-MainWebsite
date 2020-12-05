@@ -3,7 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 
-app = Flask(__name__, static_folder="build")
+app = Flask(__name__, static_folder="build", static_url_path='/')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///UserDataBase.db'
 app.config['SQLALCHEMY_BINDS'] = {'fac': 'sqlite:///FacultyDataBase.db'}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
