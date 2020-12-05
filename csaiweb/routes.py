@@ -4,6 +4,7 @@ from csaiweb.models import Login, Thread, Comments, Faculty, db
 from csaiweb import app
 import pandas as pd
 import datetime
+from csaiweb.middleware import login_required
 
 # Frontend Routes
 
