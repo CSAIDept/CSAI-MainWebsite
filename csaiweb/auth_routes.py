@@ -54,15 +54,14 @@ def login():
 #         return 'server error', 500
 
 
-# Done
 @app.route('/backend/signup', methods=["POST"])
 def signup():
     try:
         content = request.get_json()
-        # username = content["user"]["username"]
-        # password = content["user"]["password"]
-        username = "manjot_singh"
-        password = "1234"
+        username = content["user"]["username"]
+        password = content["user"]["password"]
+        # username = "manjot_singh"
+        # password = "1234"
         print(content)
 
         user = Login(username=username, password=password)
