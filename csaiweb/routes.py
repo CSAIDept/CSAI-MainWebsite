@@ -4,7 +4,6 @@ from csaiweb.models import Login, Thread, Comments, Faculty, db
 from csaiweb import app
 import pandas as pd
 import datetime
-from csaiweb.middleware import login_required
 
 # Frontend Routes
 
@@ -128,7 +127,7 @@ def newthread():
         author = content["details"]["author"]
         # title = "Hello"
         # body = "Hello Guys!!"
-        time = "Few Seconds Ago"
+        time = datetime.datetime.now()
         # print(content)
         upvoted = 0
         downvoted = 0
@@ -227,11 +226,11 @@ def newcomment():
         body = content["details"]["body"]
         thread_id = content["details"]["thread_id"]
         author = content["details"]["author"]
-        # time = datetime.datetime.now()
+        time = datetime.datetime.now()
         # author = "pranay_kothari"
         # body = "Amazing!"
         # thread_id = 2
-        time = "Few Seconds Ago"
+        # time = "Few Seconds Ago"
         upvoted = 0
         downvoted = 0
         karma = 0
