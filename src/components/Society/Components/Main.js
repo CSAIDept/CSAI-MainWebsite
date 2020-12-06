@@ -16,9 +16,9 @@ class SocietyMain extends React.Component{
                 
                 <div className='Context'>
                     <div className='Society-Content'>
-                        <img src={Technical} alt="Technical societies"/>
-                        <img src={NonTechnical} alt="Non-Technical societies"/>
-                        <img src={Misc} alt="Literary societies"/>
+                        <img src={Technical} alt="Technical societies" class="img"/>
+                        <img src={NonTechnical} alt="Non-Technical societies" class="img"/>
+                        <img src={Misc} alt="Literary societies" class="img"/>
                     </div>
                 </div>
             </main>
