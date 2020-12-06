@@ -2,13 +2,6 @@
 /* CSS Document */
 
 @media only screen and (max-width: 600px) {
-  Society-main {
-    display: flex;
-    justify-content: flex-start;
-    height: 175vh;
-    top: 5;
-    margin-top: 12.8vh;
-  }
 
   .Society-Heading {
     background-color: #053c5e;
@@ -39,14 +32,6 @@
 }
 
 @media only screen and (min-width: 600px) and (max-width: 767px) {
-  Society-main {
-    display: flex;
-    justify-content: flex-start;
-    height: 175vh;
-    top: 5;
-    margin-top: 12.8vh;
-  }
-
   .Society-Heading {
     display: flex;
     flex-direction: column;
@@ -78,14 +63,6 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  Society-main {
-    display: flex;
-    justify-content: flex-start;
-    height: 175vh;
-    top: 5;
-    margin-top: 12.8vh;
-  }
-
   .Society-Heading {
     display: flex;
     flex-direction: column;
@@ -117,13 +94,6 @@
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  Society-main {
-    display: flex;
-    justify-content: flex-start;
-    height: 175vh;
-    top: 5;
-    margin-top: 12.8vh;
-  }
 
   .Society-Heading {
     display: flex;
