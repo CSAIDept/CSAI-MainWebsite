@@ -94,7 +94,9 @@ def faculty():
 
 # Forum Route - Returns all Threads in database
 
-#Done
+# Done
+
+
 @app.route('/backend/forum', methods=["GET"])
 def forum():
     posts = Thread.query.all()
@@ -117,7 +119,9 @@ def forum():
 
 # Thread Backend Routes
 
-#Done
+# Done
+
+
 @app.route('/backend/newthread', methods=["POST"])
 def newthread():
     try:
@@ -142,7 +146,9 @@ def newthread():
     except:
         return jsonify({"errors": {"global": "Invalid credentials"}}), 501
 
-#Done
+# Done
+
+
 @app.route('/backend/editthread', methods=["PUT"])
 def editthread():
     try:
@@ -195,7 +201,9 @@ def deletethread(s_no):
 
 # Upvotes and Downvoted are a array of usernames. Make changes and then also make chnages mentioned on line 37-38 of ThreadDisplay.jsx
 
-#Done
+# Done
+
+
 @app.route('/backend/thread/<s_no>', methods=["GET"])
 def thread(s_no):
 
@@ -218,7 +226,7 @@ def thread(s_no):
 
 # Comments Backend Routes
 
-#Done
+# Done
 @app.route('/backend/newcomment', methods=["POST"])
 def newcomment():
     try:
@@ -244,7 +252,9 @@ def newcomment():
     except:
         return jsonify({"errors": {"global": "Comment Not Added"}}), 501
 
-#Done
+# Done
+
+
 @app.route('/backend/editcomment', methods=["GET", "PUT"])
 def editcomment():
     try:
@@ -252,6 +262,10 @@ def editcomment():
         body = content["details"]["body"]
         sno = content["details"]["id"]
         author = content["details"]["author"]
+        # body = "Hello Kids"
+        # sno = 72
+        # author = "pranay_kothari"
+        # print(content)
 
         # upvoted = content["upvoted"]
         # downvoted = content["downvoted"]
@@ -272,15 +286,15 @@ def editcomment():
 
         row = Comments.query.filter(Comments.id == sno).all()
         Dict = {
-            'id': row.id,
-            'body': row.body,
-            'author': row.author,
-            'karma': row.karma,
-            'thread_id': row.thread_id,
-            'upvoted': row.upvoted,
-            'downvoted': row.downvoted,
-            'time_created': row.time_created
-        }
+                'id': row.id,
+                'body': row.body,
+                'author': row.author,
+                'karma': row.karma,
+                'thread_id': row.thread_id,
+                'upvoted': row.upvoted,
+                'downvoted': row.downvoted,
+                'time_created': row.time_created
+                }
         List.append(Dict)
 
         return json.dumps(List)
@@ -299,7 +313,7 @@ def deletecomment(id):
         return 'Comment Not Deleted!', 501
 
 
-#Done
+# Done
 @app.route('/backend/comments/<thread_id>', methods=["GET"])
 def comments(thread_id):
 
