@@ -25,7 +25,7 @@ class MainBody extends React.Component {
 								</div>
 						</div>
 					</div>
-					<DisplayTiles />
+				<DisplayTiles />
 				</div>
 			</main>
 		);

@@ -1,29 +1,12 @@
 export default [
     {
-        title: "Announcement",
+        title: "Created By",
         content: [
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application."
+            "Pranay Kothari        ",
+            "Yash Sethia       ",
+            "Shubham Tiwari       ",
+            "Ashwani Tanwar         ",
+            "Ritesh Kumar             "
                 ]
-    },
-    {
-        title: "Announcement",
-        content: [
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application."
-                ]
-    },
-    {
-        title: "Announcement",
-        content: [
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application.",
-                    "React Router helps you create routes to your single page applications. It’s very powerful and easy to use with your React application."
-                ]
-    }
+            }
 ];
