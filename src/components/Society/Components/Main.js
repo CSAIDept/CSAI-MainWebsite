@@ -1,17 +1,11 @@
 import React from 'react';
-import facultyList from './facultyList';
-import FacultyCard from './FacultyCard';
+import Technical from './1.jpg'
+import NonTechnical from './2.jpg'
+import Misc from './3.jpg'
 
 class SocietyMain extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            data: facultyList
-        }
-    }
     render()
     {
-        const facultyData = this.state.data.map(item => <FacultyCard key={item.name} item={item}/>)
         return (
             <main>
                 <div className='Society-Heading'>
@@ -22,7 +16,9 @@ class SocietyMain extends React.Component{
                 
                 <div className='Context'>
                     <div className='Society-Content'>
-                        {facultyData}
+                        <img src={Technical} alt="Technical societies"/>
+                        <img src={NonTechnical} alt="Non-Technical societies"/>
+                        <img src={Misc} alt="Literary societies"/>
                     </div>
                 </div>
             </main>
