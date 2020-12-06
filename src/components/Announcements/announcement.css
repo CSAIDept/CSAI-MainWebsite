@@ -389,11 +389,10 @@ Changed */
     background-color: #053c5e;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 30%;
     color: white;
     position: fixed;
-    /* margin-left: 10rem; */
     left: 0;
   }
   .announcementTileHeading h2 {
