@@ -4,7 +4,7 @@ export default [
         content: [
             "Pranay Kothari",
             "Yash Sethia",
-            "Shubham Tiwari",
+            "Shubham",
             "Ashwani Tanwar",
             "Ritesh Kumar"
                 ]
