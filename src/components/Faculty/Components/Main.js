@@ -21,7 +21,7 @@ class Main extends React.Component{
                 </div>
                     
                 
-                <div className='Context' >
+                <div className='Faculty-Context' >
                     <div className="faculty-list" >
                         {facultyData}
                     </div>
