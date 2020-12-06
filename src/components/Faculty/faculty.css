@@ -51,7 +51,7 @@
     margin-right: -10px;
   }
 
-  .Context {
+  .Faculty-Context {
     margin-left: 30vw;
     background: url(Background.png);
     background-position: right;
@@ -145,7 +145,7 @@
     margin-top: 5rem;
   }
 
-  .Context {
+  .Faculty-Context {
     margin-left: 30vw;
     background: url(Background.png);
     background-position: right;
@@ -230,8 +230,8 @@
     margin-left: 29vw;
     width: 70vw;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-      url(Background.png);
+    /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+      url(Background.png); */
 
     background-size: cover;
     background-attachment: scroll;
@@ -239,9 +239,9 @@
     
   }
 
-  .Context {
+  .Faculty-Context {
     margin-left: 30vw;
-    background: url(Background.png);
+    /* background: url(Background.png); */
     background-position: right;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -333,7 +333,7 @@
     margin-right: -10px;
   }
 
-  .Context {
+  .Faculty-Context {
     margin-left: 36vw;
     background: url(Background.png);
     background-position: right;
@@ -419,17 +419,17 @@
     margin-left: 29vw;
     width: 70vw;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-      url(Background.png);
+    /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+      url(Background.png); */
 
     background-size: cover;
     background-attachment: scroll;
     margin-right: -10px;
   }
 
-  .Context {
+  .Faculty-Context {
     margin-left: 30vw;
-    background: url(Background.png);
+    /* background: url(Background.png); */
     background-position: right;
     background-attachment: fixed;
     background-repeat: no-repeat;
