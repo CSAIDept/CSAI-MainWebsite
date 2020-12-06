@@ -1,77 +1,14 @@
-export default [
-    {
-        id: 1,
-        title: "Circular 1",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 2,
-        title: "Circular 1",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 3,
-        title: "Circular 1",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 4,
-        title: "Circular 1",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 5,
-        title: "Circular 1",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 6,
-        title: "Circular 2",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 7,
-        title: "Circular 2",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 8,
-        title: "Circular 2",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 9,
-        title: "Circular 2",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 10,
-        title: "Circular 2",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 11,
-        title: "Circular 3",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 12,
-        title: "Circular 3",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 13,
-        title: "Circular 3",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 14,
-        title: "Circular 3",
-        issuedBy: "HOD Computer Science Department"
-    },
-    {
-        id: 15,
-        title: "Circular 3",
-        issuedBy: "HOD Computer Science Department"
+let data = require('./announcements.json');
+let i
+let finalData = []
+for(i=0;i<data.length;i++)
+{
+    var dict = {
+        id: i+1,
+        title: data[i][0],
+        issuedBy: data[i][1]
     }
-];
+    finalData.push(dict)
+}
+console.log(finalData)
+export default finalData;

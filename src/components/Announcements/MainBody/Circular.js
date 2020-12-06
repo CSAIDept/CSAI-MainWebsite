@@ -2,15 +2,15 @@ import React from 'react';
 
 function Circular(props) {
   return (
-		<div class="circular">
-            <a href="#">
+    <div class="circular">
+            <a target = '_blank' href="https://www.imsnsit.org/imsnsit/notifications.php">
                 <h4>
                     {props.title}
                 </h4>
             </a>
-            <p>Issued By: {props.issuedBy}</p>
+            <p>{props.issuedBy}</p>
             <hr />
-		</div>
+    </div>
   );
 }
 
