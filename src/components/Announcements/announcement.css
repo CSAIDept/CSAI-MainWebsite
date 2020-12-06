@@ -300,11 +300,7 @@ Changed */
     justify-content: center;
     align-items: center;
     height: 100vh;
-<<<<<<< HEAD
-    width: 33.33%;
-=======
     width: 30%;
->>>>>>> 62013df2fdf26ea6e0c261e3ce4f76ed35690dcd
     color: white;
     position: fixed;
     left: 0;
@@ -344,17 +340,10 @@ Changed */
     /* width: 102%; */
     box-sizing: border-box;
     color: white;
-<<<<<<< HEAD
-    margin-top: 8%;
-    /* margin-left: -4.5rem; */
-    width: 100%;
-    margin-left: 48%;
-=======
     margin-top: 10%;
     /* margin-left: -4.5rem; */
     width: 100%;
     margin-left: 43%;
->>>>>>> 62013df2fdf26ea6e0c261e3ce4f76ed35690dcd
   }
 
   .circular {
@@ -391,13 +380,8 @@ Changed */
     margin-left: -5rem;
   }
   .announcementTile {
-<<<<<<< HEAD
-    display: flex;
-    flex-direction: row;
-=======
     /* display: flex;
     justify-content: flex-start; */
->>>>>>> 62013df2fdf26ea6e0c261e3ce4f76ed35690dcd
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -413,13 +397,8 @@ Changed */
     background-color: #053c5e;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-    height: 100%;
-    width: 33%;
-=======
     height: 100vh;
     width: 30%;
->>>>>>> 62013df2fdf26ea6e0c261e3ce4f76ed35690dcd
     color: white;
     position: fixed;
     left: 0;
@@ -448,18 +427,6 @@ Changed */
 
   /* Changed */
   .announcementTileContent {
-<<<<<<< HEAD
-    /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url("./images/Mask\ Group\ 4.png"); */
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    box-sizing: border-box;
-    color: white;
-    margin-top: 8%;
-    margin-left: 50%;
-
-=======
     /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
       background-size: cover;
       background-repeat: no-repeat; */
@@ -469,7 +436,6 @@ Changed */
       /* margin-top: 10%; */
       padding-top: 7%;
       margin-left: 38%;
->>>>>>> 62013df2fdf26ea6e0c261e3ce4f76ed35690dcd
   }
 
   .circular {
@@ -492,13 +458,8 @@ Changed */
 
   .circular > hr {
     border: 1px solid #ef494e;
-<<<<<<< HEAD
-    width: 120%;
-    left: 0;
-=======
     width: 95%;
     margin-right: 5%;
     text-align: left;
->>>>>>> 62013df2fdf26ea6e0c261e3ce4f76ed35690dcd
   }
 }
