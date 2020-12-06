@@ -13,14 +13,14 @@ function Tile() {
 
             <div className="aboutTileContent">
                 <div className="aboutTileContent-text">
-                    <div>
-                        <b class="subtitle">Vision of the CSE Department:</b>
+                    <div class="section">
+                        <p><u><b class="subtitle">Vision of the CSE Department</b></u></p>
                         <p>To achieve excellence in education, research and technology transfer in the domain of Computer Engineering and Artifical Intelligence with the highest standard of professional ethics.
                         </p>
                     </div>
                     <br></br>
-                    <div>
-                        <b class="subtitle">Mission of the CSE Department:</b>
+                    <div class="section">
+                        <p><u><b class="subtitle">Mission of the CSE Department</b></u></p>
                         <p>
                             <p>1. To promote quality education in Computer Engineering through undergraduate (UG) and postgraduate (PG) courses, continuing education and research and development (R&D) activities.
                             </p>
@@ -31,8 +31,8 @@ function Tile() {
                         </p>
                     </div>
                     <br></br>
-                    <div>
-                        <b class="subtitle">Program Educational Objectives:</b>
+                    <div class="section">
+                        <p><u><b class="subtitle">Program Educational Objectives</b></u></p>
                         <p>
                         The four year courses aim to achieve the following PEOs: 
                         <br></br>
@@ -47,8 +47,9 @@ function Tile() {
                         </p>
                     </div>
                     <br></br>
-                    <div>
-                        <b class="subtitle">Courses offered:</b>
+                    <div class="section">
+                        <p><u><b class="subtitle">Courses offered:</b></u></p>
+                        <br></br>
                         <p>The Department offers 04 Undergraduate (UG), 01 Postgraduate (PG) and Ph.D. Programmes. PG program M.Tech. (Computer Engineering) is for regular candidates of two years duration and for working professionals of three years duration. The UG programme was started in 1983, right from the inception of the Institute(formerly NSIT). The first PG programme in COE was started in the year 1999. UG programme B. Tech. in Computer Science and Engg. (Artificial Intelligence) has been commenced from the session 2019-20. B. Tech. programme in Computer Science and Engg. (Data Science) has been commenced from 2020-21. In addition, the Department also offers high quality research programmes at the doctoral level.
                         <p>To keep in pace with the current technological advancements, the UG curriculum has been modified recently with provision for revision/modifications as and when need, so that the students get a feel of what exactly is happening outside in the tech-world.
                         </p>
@@ -67,8 +68,9 @@ function Tile() {
                         </p>
                     </div>
                     <br></br>
-                    <div>
-                        <b class="subtitle">Areas of Research</b>
+                    <div class="section">
+                        <p><u><b class="subtitle">Areas of Research</b></u></p>
+                        <br></br>
                         <p>Our research capabilities provide solutions for clients and partners in a wide range of sectors including those listed below.
                         </p>
                         <p>
