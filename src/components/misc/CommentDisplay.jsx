@@ -107,7 +107,7 @@ class CommentDisplay extends Component {
     // console.log("yyyyyyyy : ",this.state.comment)
     data.thread = this.state.comment.thread_id;
     data.author = this.state.comment.author;
-    data.id = this.state.comment._id;
+    data.id = this.state.comment.id;
     // console.log("yoooooooooo ",this.state.comment);
     // console.log("1 ", this.state.comment.thread);
     // console.log("2 ", this.state.comment.author);
@@ -120,7 +120,7 @@ class CommentDisplay extends Component {
     //             })
     //         })
     // }
-    // console.log("Manjot", data);
+    console.log("Manjot", data);
     // this.setState({
     //   threadData: data,
     //   editMode: false,

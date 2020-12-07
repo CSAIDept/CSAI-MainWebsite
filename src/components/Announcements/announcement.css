@@ -392,6 +392,7 @@ Changed */
   /* NO Change */
   .announcementTileHeading {
     display: flex;
+    float: left;
     flex-direction: column;
     background-color: #053c5e;
     justify-content: center;
